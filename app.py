@@ -1,5 +1,6 @@
 import re
 from datetime import datetime
+from flask_cors import CORS
 
 import requests
 from bs4 import BeautifulSoup
