@@ -8,6 +8,7 @@ from flask import Flask, jsonify
 import os
 
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 URL_MAIN = "https://finance.naver.com/marketindex/"
 URL_USD = "https://finance.naver.com/marketindex/exchangeDetail.naver?marketindexCd=FX_USDKRW"
