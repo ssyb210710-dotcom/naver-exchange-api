@@ -6,7 +6,9 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify
 import os
+from datetime import datetime, timezone, timedelta
 
+KST = timezone(timedelta(hours=9))
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
@@ -105,7 +107,7 @@ def ping():
 
 @app.route("/api/rate")
 def api_rate():
-    updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    updated_at = datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S")
 
     try:
         base_rate = fetch_base_rate()
